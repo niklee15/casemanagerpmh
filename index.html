@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nik Lee - Perinatal Mental Health Case Manager</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .hero-section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 60px 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(102, 126, 234, 0.1) 0%, transparent 70%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.3; }
+            50% { transform: scale(1.1); opacity: 0.1; }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: #7f8c8d;
+            margin-bottom: 30px;
+        }
+
+        .hero-intro {
+            font-size: 1.1rem;
+            color: #34495e;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        .section:hover {
+            transform: none;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .section-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .role-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 12px;
+            padding: 30px;
+            border-left: 5px solid #667eea;
+            transition: transform 0.3s ease;
+        }
+
+        .role-card:hover {
+            transform: translateX(10px);
+        }
+
+        .role-card h3 {
+            color: #2c3e50;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+        }
+
+        .role-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .role-card li {
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .role-card li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .project-highlight {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 15px;
+            padding: 40px;
+            margin: 30px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-highlight::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+
+        .project-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .success-metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .metric-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .metric-card:hover {
+            transform: scale(1.05);
+        }
+
+        .metric-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .contact-section {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .contact-info {
+            font-size: 1.2rem;
+            margin-top: 20px;
+        }
+
+        .contact-email {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            color: white;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .contact-email:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .diagram-container {
+            text-align: center;
+            margin: 30px 0;
+            padding: 20px;
+            background: rgba(102, 126, 234, 0.05);
+            border-radius: 12px;
+        }
+
+        .personal-touch {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            text-align: center;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 20px 0;
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .two-column {
+                grid-template-columns: 1fr;
+            }
+            
+            .success-metrics {
+                grid-template-columns: 1fr;
+            }
+            
+            .container {
+                padding: 10px;
+            }
+        }
+
+        .nav-dots {
+            position: fixed;
+            right: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1000;
+        }
+
+        .nav-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            margin: 10px 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .nav-dot.active {
+            background: #667eea;
+            transform: scale(1.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="nav-dots">
+        <div class="nav-dot active" onclick="scrollToSection('hero')"></div>
+        <div class="nav-dot" onclick="scrollToSection('about')"></div>
+        <div class="nav-dot" onclick="scrollToSection('role')"></div>
+        <div class="nav-dot" onclick="scrollToSection('project')"></div>
+        <div class="nav-dot" onclick="scrollToSection('success')"></div>
+        <div class="nav-dot" onclick="scrollToSection('contact')"></div>
+    </div>
+
+    <div class="container">
+        <section id="hero" class="hero-section">
+            <div class="hero-content">
+                <h1 class="hero-title">Nik Lee</h1>
+                <p class="hero-subtitle">Yorkshire & Humber Perinatal Mental Health Case Manager</p>
+                <p class="hero-intro">
+                    Passionate about improving care pathways and ensuring people receive the right care, in the right place. 
+                    Supporting patients, services and the wider system to drive meaningful change in perinatal mental health.
+                </p>
+            </div>
+        </section>
+
+        <section id="about" class="section">
+            <h2 class="section-title">
+                <div class="section-icon">👨‍⚕️</div>
+                About Me
+            </h2>
+            <p>I'm a mental health nurse with specialised qualifications in child and adolescent mental health and management and business practice. Throughout my career, I've worked predominantly with children, young people, and their families across diverse settings including inpatient services and community teams.</p>
+            
+            <div class="personal-touch">
+                <p><strong>Personal Touch:</strong> Originally from Manchester, now calling Leeds home. While I don't have children or pets yet, I do have a thriving house plant! 🌱</p>
+            </div>
+            
+            <p>My experience spans operational management, large-scale projects, and care navigation. I've managed several community teams and led transformational initiatives, always with a focus on improving patient outcomes and system efficiency.</p>
+        </section>
+
+        <section id="role" class="section">
+            <h2 class="section-title">
+                <div class="section-icon">🎯</div>
+                My Role
+            </h2>
+            <p>As the Perinatal Mental Health Case Manager for Yorkshire & Humber, I focus on quality assurance, pathway improvement, and system coordination. <strong>Importantly, this is not a clinical role</strong> - it's about asking the right questions, supporting patients and services and ensuring safe and effective care.</p>
+            
+            <div class="two-column">
+                <div class="role-card">
+                    <h3>Core Case Management</h3>
+                    <ul>
+                        <li>Independent quality assurance and oversight of inpatient care</li>
+                        <li>Ensure commissioned packages are safe, effective, and high quality</li>
+                        <li>Conduct service user reviews and environmental audits</li>
+                        <li>Attend clinical meetings and review documentation</li>
+                        <li>Escalate concerns and collaborate to drive improvement</li>
+                        <li>Support effective transitions and discharge planning</li>
+                    </ul>
+                </div>
+                
+                <div class="role-card">
+                    <h3>Perinatal Pathway Project</h3>
+                    <ul>
+                        <li>Review referral pathways for MBU vs non-MBU admissions</li>
+                        <li>Support regional MBU expansion planning</li>
+                        <li>Build sustainable commissioning models</li>
+                        <li>Enhance access across Yorkshire & Humber</li>
+                        <li>Conduct pathway mapping and case reviews</li>
+                        <li>Facilitate interviews with women and staff</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="project" class="project-highlight">
+            <div class="project-content">
+                <h2>🚀 The Perinatal Pathway Project</h2>
+                <p>We are embarking on a six-week scoping project in Leeds to better understand the inpatient experience of women in the perinatal period who are admitted to non-MBU wards. This project responds to queries about what happens when women in the perinatal period who are not admitted to an MBU and are instead placed on acute or PICU wards. The aim is to understand how decisions are made, how care is planned and delivered, and what the experience is like for both women and staff.</p>
+                
+                <br>
+                
+                <p>The project is rooted in appreciative enquiry. Learning from what works well, exploring care experiences, and identifying practical improvements. It includes interviews with women and staff, pathway mapping, case reviews, and a thematic summary of findings to support quality improvement.</p>
+                
+                <br>
+                
+                <p>By starting in Leeds, we are taking a focused and manageable first step to understand these pathways in more depth. The goal is to create a model for improvement that could be expanded across the Yorkshire & Humber region. This work complements the core case management function by deepening our insight into how the system works and where it can evolve to better meet patient needs.</p>
+                
+                <div class="diagram-container">
+                    <p><strong>🔄 Our Collaborative Approach</strong></p>
+                    <br>
+                    <p>Working alongside the Yorkshire and Humber Perinatal Provider Collaborative to ensure joined-up, high-quality perinatal care across the region.</p>
+                </div>
+                
+                <h3>📋 What We're Doing</h3>
+                <ul style="list-style: none; padding-left: 0;">
+                    <li style="padding: 10px 0;">✨ <strong>Appreciative Enquiry:</strong> Learning from what works well</li>
+                    <li style="padding: 10px 0;">🗣️ <strong>Person Centred:</strong> Listening to women, families, and staff</li>
+                    <li style="padding: 10px 0;">🗺️ <strong>System Mapping:</strong> Understanding decision-making pathways</li>
+                    <li style="padding: 10px 0;">📊 <strong>Evidence-Based:</strong> Thematic analysis driving improvement</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="success" class="section">
+            <h2 class="section-title">
+                <div class="section-icon">🎯</div>
+                What Success Looks Like
+            </h2>
+            <div class="success-metrics">
+                <div class="metric-card">
+                    <div class="metric-icon">⚡</div>
+                    <h3>Timely Access</h3>
+                    <p>Local access to appropriate care when and where it's needed</p>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-icon">🏥</div>
+                    <h3>Y&H MBU Optimisation</h3>
+                    <p>Effective use of expanded MBU capacity across the region</p>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-icon">📍</div>
+                    <h3>Reduced Displacement</h3>
+                    <p>Fewer non-MBU and out-of-area admissions</p>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-icon">👥</div>
+                    <h3>Team Engagement</h3>
+                    <p>Clinical teams feeling engaged and supported</p>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-icon">📈</div>
+                    <h3>Continuous Improvement</h3>
+                    <p>Strengthened oversight driving ongoing improvement</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact-section section">
+            <h2 class="section-title">
+                <div class="section-icon">📞</div>
+                Get in Touch
+            </h2>
+            <p>Ready to collaborate on improving perinatal mental health pathways? I'd love to hear from you.</p>
+            <div class="contact-info">
+                <p>Whether you want to learn more, share feedback, escalate issues, or connect about perinatal mental health pathways in Yorkshire & Humber, don't hesitate to reach out.</p>
+                <a href="mailto:nicholas.lee3@nhs.net" class="contact-email">
+                    📧 nicholas.lee3@nhs.net
+                </a>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Smooth scrolling for navigation
+        function scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            element.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Update active nav dot on scroll
+        window.addEventListener('scroll', () => {
+            const sections = ['hero', 'about', 'role', 'project', 'success', 'contact'];
+            const navDots = document.querySelectorAll('.nav-dot');
+            
+            let currentSection = '';
+            sections.forEach(section => {
+                const element = document.getElementById(section);
+                const rect = element.getBoundingClientRect();
+                if (rect.top <= 150 && rect.bottom >= 150) {
+                    currentSection = section;
+                }
+            });
+            
+            navDots.forEach((dot, index) => {
+                dot.classList.remove('active');
+                if (sections[index] === currentSection) {
+                    dot.classList.add('active');
+                }
+            });
+        });
+
+        // Add hover effects to sections
+        // Removed hover effects to keep sections static
+    </script>
+</body>
+</html>
