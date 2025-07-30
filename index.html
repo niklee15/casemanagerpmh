@@ -53,6 +53,11 @@
             50% { transform: scale(1.1); opacity: 0.1; }
         }
 
+        @keyframes avatarFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
         .hero-content {
             position: relative;
             z-index: 1;
@@ -88,11 +93,6 @@
             border-radius: 15px;
             padding: 40px;
             margin-bottom: 30px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-        }
-
-        .section:hover {
-            transform: none;
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
         }
 
@@ -246,14 +246,6 @@
             transform: translateY(-2px);
         }
 
-        .diagram-container {
-            text-align: center;
-            margin: 30px 0;
-            padding: 20px;
-            background: rgba(102, 126, 234, 0.05);
-            border-radius: 12px;
-        }
-
         .personal-touch {
             background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
             color: white;
@@ -263,22 +255,85 @@
             margin: 20px 0;
         }
 
-        @media (max-width: 768px) {
-            .hero-title {
-                font-size: 2rem;
-            }
-            
-            .two-column {
-                grid-template-columns: 1fr;
-            }
-            
-            .success-metrics {
-                grid-template-columns: 1fr;
-            }
-            
-            .container {
-                padding: 10px;
-            }
+        .system-structure-diagram {
+            text-align: center;
+            margin: 30px 0;
+            padding: 20px;
+            background: rgba(102, 126, 234, 0.05);
+            border-radius: 12px;
+        }
+
+        .structure-container {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .top-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .collaborative-box {
+            background: #e67e22;
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .commissioning-box {
+            background: #34495e;
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .case-manager-box {
+            background: #2980b9;
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .services-container {
+            border: 2px solid #bdc3c7;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        .service-box {
+            background: #2980b9;
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .box-title {
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            font-weight: bold;
+        }
+
+        .box-description {
+            margin: 0;
+            font-size: 0.9em;
+            line-height: 1.4;
         }
 
         .nav-dots {
@@ -303,6 +358,164 @@
             background: #667eea;
             transform: scale(1.3);
         }
+
+        .logo-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .logo-container {
+            display: inline-flex;
+            align-items: center;
+            gap: 20px;
+            background: white;
+            padding: 20px 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .heart-icon {
+            position: relative;
+            width: 80px;
+            height: 60px;
+        }
+
+        .heart-part1 {
+            width: 70px;
+            height: 50px;
+            background: #ff8c00;
+            border-radius: 40px 40px 0 0;
+            transform: rotate(-30deg);
+            position: absolute;
+            top: 5px;
+            left: 0;
+        }
+
+        .heart-part2 {
+            width: 50px;
+            height: 40px;
+            background: #ff8c00;
+            border-radius: 30px 30px 0 0;
+            transform: rotate(20deg);
+            position: absolute;
+            top: 15px;
+            right: 5px;
+        }
+
+        .heart-part3 {
+            width: 45px;
+            height: 35px;
+            background: #ff8c00;
+            transform: rotate(-15deg);
+            position: absolute;
+            bottom: 0;
+            left: 15px;
+            border-radius: 0 0 20px 20px;
+        }
+
+        .parent-baby-icon {
+            position: relative;
+            margin-left: -20px;
+        }
+
+        .parent-figure {
+            width: 45px;
+            height: 45px;
+            background: #228b22;
+            border-radius: 50%;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .baby-figure {
+            width: 20px;
+            height: 20px;
+            background: white;
+            border-radius: 50%;
+            position: absolute;
+            bottom: 8px;
+            right: 8px;
+        }
+
+        .parent-body {
+            width: 25px;
+            height: 15px;
+            background: white;
+            border-radius: 50%;
+            position: absolute;
+            top: 15px;
+            left: 10px;
+        }
+
+        .logo-text {
+            text-align: center;
+        }
+
+        .logo-text-line1 {
+            color: #228b22;
+            font-size: 32px;
+            font-weight: bold;
+            line-height: 1.2;
+            font-family: Arial, sans-serif;
+        }
+
+        .logo-text-line2, .logo-text-line3 {
+            color: #ff8c00;
+            font-size: 32px;
+            font-weight: bold;
+            line-height: 1.2;
+            font-family: Arial, sans-serif;
+        }
+
+        .avatar-container {
+            margin-bottom: 30px;
+        }
+
+        .avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            animation: avatarFloat 3s ease-in-out infinite;
+            margin: 0 auto;
+            object-fit: cover;
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .two-column {
+                grid-template-columns: 1fr;
+            }
+            
+            .top-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .success-metrics {
+                grid-template-columns: 1fr;
+            }
+            
+            .container {
+                padding: 10px;
+            }
+
+            .nav-dots {
+                display: none;
+            }
+
+            .logo-text-line1, .logo-text-line2, .logo-text-line3 {
+                font-size: 24px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -311,13 +524,24 @@
         <div class="nav-dot" onclick="scrollToSection('about')"></div>
         <div class="nav-dot" onclick="scrollToSection('role')"></div>
         <div class="nav-dot" onclick="scrollToSection('project')"></div>
+        <div class="nav-dot" onclick="scrollToSection('structure')"></div>
         <div class="nav-dot" onclick="scrollToSection('success')"></div>
         <div class="nav-dot" onclick="scrollToSection('contact')"></div>
     </div>
 
     <div class="container">
+        <div class="logo-header">
+            <div class="logo-container">
+                <div class="logo-text">
+                    <div class="logo-text-line1">Yorkshire and Humber</div>
+                    <div class="logo-text-line2">Perinatal Mental Health Provider Collaborative</div>
+                </div>
+            </div>
+        </div>
+
         <section id="hero" class="hero-section">
             <div class="hero-content">
+
                 <h1 class="hero-title">Nik Lee</h1>
                 <p class="hero-subtitle">Yorkshire & Humber Perinatal Mental Health Case Manager</p>
                 <p class="hero-intro">
@@ -334,9 +558,7 @@
             </h2>
             <p>I'm a mental health nurse with specialised qualifications in child and adolescent mental health and management and business practice. Throughout my career, I've worked predominantly with children, young people, and their families across diverse settings including inpatient services and community teams.</p>
             
-            <div class="personal-touch">
-                <p><strong>Personal Touch:</strong> Originally from Manchester, now calling Leeds home. While I don't have children or pets yet, I do have a thriving house plant! 🌱</p>
-            </div>
+            <br>
             
             <p>My experience spans operational management, large-scale projects, and care navigation. I've managed several community teams and led transformational initiatives, always with a focus on improving patient outcomes and system efficiency.</p>
         </section>
@@ -378,7 +600,10 @@
         <section id="project" class="project-highlight">
             <div class="project-content">
                 <h2>🚀 The Perinatal Pathway Project</h2>
-                <p>We are embarking on a six-week scoping project in Leeds to better understand the inpatient experience of women in the perinatal period who are admitted to non-MBU wards. This project responds to queries about what happens when women in the perinatal period who are not admitted to an MBU and are instead placed on acute or PICU wards. The aim is to understand how decisions are made, how care is planned and delivered, and what the experience is like for both women and staff.</p>
+                
+                <br>
+                
+                <p>We are embarking on a scoping project to better understand the inpatient experience of women in the perinatal period who are admitted to non-MBU wards. This project responds to queries about what happens when women in the perinatal period who are not admitted to an MBU and are instead placed on acute or PICU wards. The aim is to understand how decisions are made, how care is planned and delivered, and what the experience is like for both women and staff.</p>
                 
                 <br>
                 
@@ -386,9 +611,9 @@
                 
                 <br>
                 
-                <p>By starting in Leeds, we are taking a focused and manageable first step to understand these pathways in more depth. The goal is to create a model for improvement that could be expanded across the Yorkshire & Humber region. This work complements the core case management function by deepening our insight into how the system works and where it can evolve to better meet patient needs.</p>
+                <p>We are taking a focused and manageable first step to understand these pathways in more depth. The goal is to create a model for improvement that could be expanded across the Yorkshire & Humber region. This work complements the core case management function by deepening our insight into how the system works and where it can evolve to better meet patient needs.</p>
                 
-                <div class="diagram-container">
+                <div style="text-align: center; margin: 30px 0; padding: 20px; background: rgba(255, 255, 255, 0.1); border-radius: 12px;">
                     <p><strong>🔄 Our Collaborative Approach</strong></p>
                     <br>
                     <p>Working alongside the Yorkshire and Humber Perinatal Provider Collaborative to ensure joined-up, high-quality perinatal care across the region.</p>
@@ -404,11 +629,62 @@
             </div>
         </section>
 
+        <section id="structure" class="section">
+            <h2 class="section-title">
+                <div class="section-icon">🏢</div>
+                System Structure
+            </h2>
+            <p>Understanding how the Yorkshire & Humber perinatal mental health system works together is essential to effective case management. The diagram below shows the key organisations and their relationships in supporting women and families across our region.</p>
+            
+            <div class="system-structure-diagram">
+                <div class="structure-container">
+                    <div class="top-row">
+                        <div class="collaborative-box">
+                            <h4 class="box-title">Yorkshire & Humber Perinatal Provider Collaborative</h4>
+                            <p class="box-description">Strategic group of regional health and social care partners, who oversee the clinical and operational delivery of the Yorkshire and Humber Mother and Baby Unit.</p>
+                        </div>
+                        <div class="commissioning-box">
+                            <h4 class="box-title">West Yorkshire Commissioning Hub</h4>
+                            <p class="box-description">Provides oversight and coordination for specialist mental health commissioning, manages contracts and funding for perinatal inpatient services and ensures services meet regional needs and national standards.</p>
+                        </div>
+                    </div>
+                    
+                    <div style="display: flex; justify-content: center; margin: 20px 0;">
+                        <div class="case-manager-box">
+                            <h4 class="box-title">Y&H Perinatal Case Manager</h4>
+                            <p class="box-description">Point of contact for the Commissioning hub who supports admissions, transfers and discharges across the region alongside the clinical teams, and ensures commissioned packages of care are safe, effective and of high quality.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="services-container">
+                        <div class="services-grid">
+                            <div class="service-box">
+                                <h5 class="box-title">Y&H Referral Management Service (RMS)</h5>
+                                <p class="box-description">Manages day-to-day referrals for perinatal inpatient services, ensures appropriate triage and supports the admission process to the local MBU or out-of-area (OOA) inpatient services as appropriate.</p>
+                            </div>
+                            <div class="service-box">
+                                <h5 class="box-title">Y&H Mother and Baby Unit</h5>
+                                <p class="box-description">Provides inpatient care for mothers and their babies, offering a safe and therapeutic environment to support recovery, while working closely with community teams for continuity of care.</p>
+                            </div>
+                            <div class="service-box">
+                                <h5 class="box-title">Y&H Out of Area Inpatients</h5>
+                                <p class="box-description">RMS maintains clinical oversight of anyone in the perinatal period who is placed OOA and supports relevant repatriations. Case Manager with ensure quality and commissioning of all OOA placements, in liaison with the OOA PCs and ICBs, to ensure Y&H patients receive safe and effective care in-line with the commissioning agreement and contract.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <p>This structure ensures coordinated care across the region, with clear pathways for referrals, admissions, and ongoing support. Each component plays a vital role in delivering high-quality perinatal mental health services to women and families in Yorkshire & Humber.</p>
+        </section>
+
         <section id="success" class="section">
             <h2 class="section-title">
-                <div class="section-icon">🎯</div>
-                What Success Looks Like
+                <div class="section-icon">📊</div>
+                Success Indicators
             </h2>
+            <p>Our work aims to achieve meaningful improvements across the perinatal mental health system. Here are the key outcomes we're working towards:</p>
+            
             <div class="success-metrics">
                 <div class="metric-card">
                     <div class="metric-icon">⚡</div>
@@ -439,16 +715,18 @@
         </section>
 
         <section id="contact" class="contact-section section">
-            <h2 class="section-title">
-                <div class="section-icon">📞</div>
-                Get in Touch
-            </h2>
-            <p>Ready to collaborate on improving perinatal mental health pathways? I'd love to hear from you.</p>
-            <div class="contact-info">
-                <p>Whether you want to learn more, share feedback, escalate issues, or connect about perinatal mental health pathways in Yorkshire & Humber, don't hesitate to reach out.</p>
-                <a href="mailto:nicholas.lee3@nhs.net" class="contact-email">
-                    📧 nicholas.lee3@nhs.net
-                </a>
+            <div style="text-align: center;">
+                <h2 class="section-title" style="justify-content: center; color: white;">
+                    <div class="section-icon">📞</div>
+                    Get in Touch
+                </h2>
+                <p style="color: white;">Ready to collaborate on improving perinatal mental health pathways? I'd love to hear from you.</p>
+                <div class="contact-info">
+                    <p style="color: white;">Whether you want to learn more, share feedback, escalate issues, or connect about perinatal mental health pathways in Yorkshire & Humber, don't hesitate to reach out.</p>
+                    <a href="mailto:nicholas.lee3@nhs.net" class="contact-email">
+                        📧 nicholas.lee3@nhs.net
+                    </a>
+                </div>
             </div>
         </section>
     </div>
@@ -462,15 +740,17 @@
 
         // Update active nav dot on scroll
         window.addEventListener('scroll', () => {
-            const sections = ['hero', 'about', 'role', 'project', 'success', 'contact'];
+            const sections = ['hero', 'about', 'role', 'project', 'structure', 'success', 'contact'];
             const navDots = document.querySelectorAll('.nav-dot');
             
             let currentSection = '';
             sections.forEach(section => {
                 const element = document.getElementById(section);
-                const rect = element.getBoundingClientRect();
-                if (rect.top <= 150 && rect.bottom >= 150) {
-                    currentSection = section;
+                if (element) {
+                    const rect = element.getBoundingClientRect();
+                    if (rect.top <= 150 && rect.bottom >= 150) {
+                        currentSection = section;
+                    }
                 }
             });
             
@@ -481,9 +761,6 @@
                 }
             });
         });
-
-        // Add hover effects to sections
-        // Removed hover effects to keep sections static
     </script>
 </body>
 </html>
